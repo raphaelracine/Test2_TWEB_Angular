@@ -10,7 +10,7 @@ var config = {
     app: {
       name: 'test-2'
     },
-    port: port,
+    port: port
   },
 
   test: {
@@ -18,7 +18,7 @@ var config = {
     app: {
       name: 'test-2'
     },
-    port: port,
+    port: port
   },
 
   production: {
@@ -26,7 +26,7 @@ var config = {
     app: {
       name: 'test-2'
     },
-    port: port,
+    port: port
   }
 };
 
