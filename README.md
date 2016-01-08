@@ -9,10 +9,10 @@ Welcome to this GitHub repository.
 This repository is used for TWEB Test 2 at HEIG-VD school.
 
 ## Choosen Topic
-The topic I have chosen is one where we have to use the API GitHub.
+The topic I have chosen is one where we have to use the API CrunchBase.
 
-## Studies API GitHub
-[Here](https://developer.github.com/v3/) we can find the documentation about the GitHub API version 3.
+## Studies API CrunchBase
+[Here]() we can find the documentation about the API.
 
 ## Choice of functionality
 

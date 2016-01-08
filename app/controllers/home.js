@@ -7,9 +7,7 @@ module.exports = function (app) {
 };
 
 router.get('/', function (req, res, next) {
-	res.render('index', {
-		title: "An implementation of GitHub API"
-	});
+	res.render('index');
 });
 
 router.get('/templates/:template', function (req, res, next) {
