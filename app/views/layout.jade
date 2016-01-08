@@ -7,8 +7,11 @@ html(lang='en')
     block css
       link(rel='stylesheet', href='/css/bootstrap.min.css')
     block js
-      script(src="/node_modules/angular/angular.js")
+      script(src="/components/angular/angular.min.js")
+      script(src="/components/github-api/github.js")
+      script(src="/js/my_angular.js")
       if ENV_DEVELOPMENT
         script(src='http://localhost:35729/livereload.js')
   body
-    block content
+    div(ng-app="Test2Module")
+      block content
