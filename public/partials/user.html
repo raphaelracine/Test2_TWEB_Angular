@@ -1,0 +1,16 @@
+<div class="row">
+
+	<img class="col-md-1" src={{user.avatar_url}} />
+	<div class="col-md-3"> 
+		<b><a href={{user.html_url}}>{{user.login}}</a></b>
+		<br>{{user.name}}
+		<br><a ng-href="mailto:{{ user.email }}" > {{user.email}} </a>
+	</div>
+	
+	<div class="col-md-3">
+		<button ui-sref="user.repositories" class="btn btn-primary">Show Repositories
+	</div>
+	
+</div>
+
+<div ui-view="" />

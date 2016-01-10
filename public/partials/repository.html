@@ -1,0 +1,9 @@
+<h2> {{ repo.name }} </h2>
+{{ repo.description }}
+
+<h3>{{contributors.length}} Contributor(s)</h3>
+
+<p ng-repeat="c in contributors | orderBy:['login']" class="row">
+	<a href={{c.html_url}}>{{ c.login }} {{ c.name }}</a>
+	<img class="col-md-1" src={{c.avatar_url}} />
+</p>
