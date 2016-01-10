@@ -1,3 +1,7 @@
+// Angular Application
+// Author : Raphaël Racine
+// This application is used for an angular exercise with GitHub API
+
 (function() {
 	
 	var app = angular.module('Test2Module', ['ui.router']);
@@ -42,7 +46,7 @@
 		
 	});
 	
-	app.controller('UserController', function($scope, GitHub, $stateParams, $state) {
+	app.controller('UserController', function($scope, GitHub, $stateParams, $state, error) {
 		
 		GitHub.getUser().show($stateParams.user, function(err, user) {			
 			$scope.user = user;
@@ -65,9 +69,7 @@
 		GitHub.getRepo($stateParams.user, $stateParams.name).show(function(err, repo) {
 			
 			$scope.repo = repo;
-			$scope.$apply();
-			
-			console.log(repo);
+			$scope.$apply(); // Refresh the view
 			
 			// Get contributors of the repo
 			$http({
