@@ -5,5 +5,10 @@
     "**/.*",
     "node_modules",
     "components"
-  ]
+  ],
+  "dependencies": {
+    "github-api": "~0.10.7",
+    "angular": "~1.4.8",
+    "angular-ui-router": "~0.2.15"
+  }
 }
