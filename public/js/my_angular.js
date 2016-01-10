@@ -5,6 +5,7 @@
 	app.config(function($stateProvider, $urlRouterProvider) {
 		
 		$urlRouterProvider.otherwise('welcome');
+		$urlRouterProvider.when('user', 'user.repositories');
 		
 		// Welcome State
 		$stateProvider.state('welcome', {
@@ -46,6 +47,7 @@
 		GitHub.getUser().show($stateParams.user, function(err, user) {			
 			$scope.user = user;
 			$scope.$apply(); // Refresh view
+			$state.go('user.repositories'); // Showing repositories by default
 		});
 		
 	});
