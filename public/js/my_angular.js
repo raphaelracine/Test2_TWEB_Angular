@@ -47,7 +47,6 @@
 		GitHub.getUser().show($stateParams.user, function(err, user) {			
 			$scope.user = user;
 			$scope.$apply(); // Refresh view
-			$state.go('user.repositories'); // Showing repositories by default
 		});
 		
 	});
