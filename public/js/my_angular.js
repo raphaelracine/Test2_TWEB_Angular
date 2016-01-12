@@ -66,23 +66,12 @@
 	
 	app.controller('UserRepositoryController', function($scope, $stateParams, GitHub, $http) {
 		
-		GitHub.getRepo($stateParams.user, $stateParams.name).show(function(err, repo) {
-			
+		GitHub.getRepo($stateParams.user, $stateParams.name).show(function(err, repo) {			
 			$scope.repo = repo;
 			$scope.$apply(); // Refresh the view
-			
-			// Get contributors of the repo
-			$http({
-				method: 'GET',
-				url: repo.contributors_url
-			})
-			.then(function(res) {
-				$scope.contributors = res.data;
-			}, function(err) {
-			});
-			
 		});
 		
 	});
+
 	
 })();
