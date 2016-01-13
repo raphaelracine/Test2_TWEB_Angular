@@ -78,6 +78,13 @@
 		repo.contributors(function(err, contributors) {
 			$scope.contributors = contributors;
 			$scope.$apply();
+			
+			// We have to count the total of commits using map and reduce
+			$scope.numberOfCommits = contributors.map(function(c) {
+				return c.total;
+			}).reduce(function(a, b) {
+				return a + b;
+			});
 		});
 		
 	});
