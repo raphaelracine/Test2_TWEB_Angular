@@ -6,8 +6,11 @@ html(lang='en')
     title= title
     block css
       link(rel='stylesheet', href='/css/bootstrap.min.css')
+      link(rel="stylesheet", href="/components/angular-chart.js/dist/angular-chart.css")
     block js
+      script(src="/components/Chart.js/Chart.min.js")
       script(src="/components/angular/angular.js")
+      script(src="/components/angular-chart.js/dist/angular-chart.min.js")
       script(src="/components/github-api/github.js")
       script(src="/components/angular-ui-router/release/angular-ui-router.min.js")
       script(src="/js/my_angular.js")

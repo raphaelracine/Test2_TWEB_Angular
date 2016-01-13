@@ -9,6 +9,7 @@
   "dependencies": {
     "github-api": "~0.10.7",
     "angular": "~1.4.8",
-    "angular-ui-router": "~0.2.15"
+    "angular-ui-router": "~0.2.15",
+    "angular-chart.js": "~0.8.8"
   }
 }

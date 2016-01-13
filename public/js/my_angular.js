@@ -4,10 +4,11 @@
 
 (function() {
 	
-	var app = angular.module('Test2Module', ['ui.router']);
+	var app = angular.module('Test2Module', ['ui.router', 'chart.js']);
 	
 	app.config(function($stateProvider, $urlRouterProvider) {
 		
+		// Config States for UI-Router
 		$urlRouterProvider.otherwise('welcome');
 		$urlRouterProvider.when('user', 'user.repositories');
 		
@@ -20,7 +21,8 @@
 		.state('user', {
 			url: '/user/:user',
 			templateUrl: '/partials/user.html',
-			controller: 'UserController'
+			controller: 'UserController',
+			abstract: true
 		})
 		// User Repositories State
 		.state('user.repositories', {
@@ -77,14 +79,19 @@
 		// Loading contributors of this repo
 		repo.contributors(function(err, contributors) {
 			$scope.contributors = contributors;
-			$scope.$apply();
 			
-			// We have to count the total of commits using map and reduce
-			$scope.numberOfCommits = contributors.map(function(c) {
-				return c.total;
-			}).reduce(function(a, b) {
-				return a + b;
+			$scope.dataCommits = [[]];
+			$scope.labelsCommits = [];
+			$scope.numberOfCommits = 0;
+			
+			// Generate stats for commits graph
+			contributors.forEach(function(c) {
+				$scope.dataCommits[0].push(c.total);
+				$scope.labelsCommits.push(c.author.login);
+				$scope.numberOfCommits += c.total;
 			});
+			
+			$scope.$apply();
 		});
 		
 	});

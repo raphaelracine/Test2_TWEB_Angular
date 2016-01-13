@@ -1,9 +1,12 @@
 <h2> {{ repoData.name }} </h2>
 {{ repoData.description }}
 
-<h3>Stats about this repo</h3>
-<p>Number of forks : {{repoData.forks_count}}</p>
-<p>Number of watchers : {{repoData.watchers_count}}</p>
-<p>Number of commits : {{numberOfCommits}}
+<br><br>                                      
+<p><b>Number of forks :</b> {{repoData.forks_count}}</p>
+<p><b>Number of watchers :</b> {{repoData.watchers_count}}</p>
+<p><b>Number of contributors :</b> {{contributors.length}}</p>
 
 <h3>Stats about contributors and their commits</h3>
+<p><b>Total number of commits :</b> {{numberOfCommits}}</p>
+
+<canvas id="bar" class="chart chart-bar" chart-data="dataCommits" chart-labels="labelsCommits" />
