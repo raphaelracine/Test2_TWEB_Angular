@@ -8,8 +8,8 @@
 	</thead>
 	<tbody>
 		<tr ng-repeat="repo in repositories | orderBy:['name']">
-			<td> <a href={{repo.html_url}}>{{ repo.name }}</a> </td>
-			<td> <img class="col-md-1" src={{repo.owner.avatar_url}} /> <a href={{repo.owner.html_url}}>{{repo.owner.login}} </a></td>
+			<td> <a ng-href="{repo.html_url}}">{{ repo.name }}</a> </td>
+			<td> <img class="col-md-1" ng-src="{{repo.owner.avatar_url}}" /> <a ng-href="{{repo.owner.html_url}}">{{repo.owner.login}} </a></td>
 			<td> <button class="btn btn-default" ui-sref="user.repository({user: repo.owner.login, name: repo.name})">See Details</button></td>
 		</tr>
 	</tbody>
