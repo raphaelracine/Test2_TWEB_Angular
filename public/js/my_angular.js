@@ -48,7 +48,7 @@
 		
 	});
 	
-	app.controller('UserController', function($scope, GitHub, $stateParams, $state) {
+	app.controller('UserController', function($scope, GitHub, $stateParams) {
 		
 		GitHub.getUser().show($stateParams.user, function(err, user) {			
 			$scope.user = user;
@@ -66,7 +66,7 @@
 		
 	});
 	
-	app.controller('UserRepositoryController', function($scope, $stateParams, GitHub, $http) {
+	app.controller('UserRepositoryController', function($scope, $stateParams, GitHub) {
 		
 		var repo = GitHub.getRepo($stateParams.user, $stateParams.name);
 		
