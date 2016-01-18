@@ -8,7 +8,3 @@ module.exports = function (app) {
 router.get('/', function (req, res, next) {
 	res.render('index');
 });
-
-router.get('/templates/:template', function (req, res, next) {
-	res.render('templates/' + req.params.template);
-});
