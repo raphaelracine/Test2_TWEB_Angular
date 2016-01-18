@@ -48,50 +48,76 @@
 		
 	});
 	
-	app.controller('UserController', function($scope, GitHub, $stateParams) {
+	app.controller('UserController', function($scope, GitHub, $stateParams, $state) {
 		
 		GitHub.getUser().show($stateParams.user, function(err, user) {			
-			$scope.user = user;
-			$scope.$apply(); // Refresh view
+			
+			if(err) {
+				alert("Impossible to retrieve this user");
+				$state.go('welcome');
+			}
+			else {						
+				$scope.user = user;
+				$scope.$apply(); // Refresh view
+			}
+			
 		});
 		
 	});
 	
-	app.controller('UserRepositoriesController', function($scope, GitHub, $stateParams) {
+	app.controller('UserRepositoriesController', function($scope, GitHub, $stateParams, $state) {
 		
 		GitHub.getUser().userRepos($stateParams.user, function(err, repositories) {
-			$scope.repositories = repositories;	
-			$scope.$apply(); // Refresh view
+			if(err) {
+				alert("Impossible to list the repositories of the user");
+				$state.go('welcome');
+			}
+			else {
+				$scope.repositories = repositories;	
+				$scope.$apply(); // Refresh view
+			}
 		});
 		
 	});
 	
-	app.controller('UserRepositoryController', function($scope, $stateParams, GitHub) {
+	app.controller('UserRepositoryController', function($scope, $stateParams, GitHub, $state) {
 		
 		var repo = GitHub.getRepo($stateParams.user, $stateParams.name);
 		
 		// Loading data concerning this repo
 		repo.show(function(err, repoData) {			
-			$scope.repoData = repoData;			
-			$scope.$apply(); // Refresh the view		
+			if(err) {
+				alert("Impossible to retrieve this repository");
+				$state.go('user.repositories');
+			}
+			else {
+				$scope.repoData = repoData;			
+				$scope.$apply(); // Refresh the view
+			}				
 		});
 		
 		// Loading contributors of this repo
 		repo.contributors(function(err, contributors) {
-			$scope.contributors = contributors;
-			
-			$scope.dataCommits = [[]];
-			$scope.labelsCommits = [];
-			$scope.numberOfCommits = 0;
-			
-			// Generate stats for commits graph
-			contributors.forEach(function(c) {
-				$scope.dataCommits[0].push(c.total);
-				$scope.labelsCommits.push(c.author.login);
-				$scope.numberOfCommits += c.total;
-			});
-			
-			$scope.$apply();
+			if(err) {
+				alert("Impossible to load contributors of this repository");
+				$state.go('user.repositories');
+			}
+			else {			
+				$scope.contributors = contributors;
+				
+				$scope.dataCommits = [[]];
+				$scope.labelsCommits = [];
+				$scope.numberOfCommits = 0;
+				
+				// Generate stats for commits graph
+				contributors.forEach(function(c) {
+					$scope.dataCommits[0].push(c.total);
+					$scope.labelsCommits.push(c.author.login);
+					$scope.numberOfCommits += c.total;
+				});
+				
+				$scope.$apply();
+			}
 		});
 		
 	});
