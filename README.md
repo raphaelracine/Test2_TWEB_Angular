@@ -34,20 +34,12 @@ I have published my app to heroku ([https://test2racine.herokuapp.com](https://t
 ### Server
 I used express for my server.
 
-My server has a controller called <b>home.js</b> which serves 2 urls :
-
-```
-/ -> to send the index view to the client
-```
-
-```
-/templates/:template -> to send a template view called :template (for example  /templates/aView) to the client
-```
+My server has a controller called <b>home.js</b> which serves the index page.
 
 That's all that my server do.
 
 
-<i>Note: I could have only static content (no express server), but I thought it after too later.</i>
+<i><b>Note:</b> I could have only static content (no express server), but I thought it after too later. But it can be good if one day i want to improve the application with a database for example.</i>
 
 ### Client
 So on the client-side i used Angular as requested.
